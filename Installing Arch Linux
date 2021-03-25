@@ -91,10 +91,3 @@ umount -R /mnt
 
 #Reboot
 shutdown -h now
-
-
-
-
-
-
-
