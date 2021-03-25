@@ -1,0 +1,19 @@
+#Enable internet
+systemctl enable NetworkManager
+
+#Others
+ip link set {interface} down
+ip link set {interface} up
+
+#Configure DNS
+vim /etc/host
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+#Install Graphical Interface
+pacman -S xorg xorg-server xorg-xinit i3 i3wm
+pacman -S xf86-video-fbdev xf86-video-vesa xf86-video-vmware
+pacman -S neovim tmux nmap alacritty
+pacman -S gdm (GNOME)
+
+#Create tmux.conf
