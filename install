@@ -1,0 +1,100 @@
+##https://wiki.archlinux.org/index.php/Installation_guide##
+
+#Configure keyboard
+#List of keyboard configurations
+ls /usr/share/kbd/keymaps/**/*.map.gz
+
+#Load configuration
+loadkeys us
+
+#Check internet connection
+ip link #OR ping google.com
+
+#Configure date/hour
+timedatectl set-ntp true
+timedatectl status
+#OR Create a simbolic link
+ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+date
+
+#Disk Partitions
+lslbk #OR fdisk -l
+
+cfdisk (/dev/sda)
+#Type: gpt (more partitions)
+#Create BIOS BOOT partition ~550M
+#Create Linux Filesystem (write = yes)
+
+#Format Filesystem
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+
+#Mount Filesystem
+mount /dev/sda2 /mnt
+
+#Install essential packages
+pacstrap /mnt base linux linux-firmware
+
+#Configure the system
+genfstab -U /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+
+#CHANGE INTO ROOT
+arch-chroot /mnt #/bin/bash
+
+#Install useful packages
+pacman -S vim nano networkmanager
+
+#Change timezone
+ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+hwclock --systohc
+
+#Localization
+cat /etc/locale.gen | grep pt
+#Remove (#)pt_br.UTF-8 UTF-8
+
+#Load configuration
+locale-gen
+
+#Edit file 
+cat /etc/locale.conf
+export LANG="pt_BR.UTF-8"
+
+#Network Config
+cat /etc/hostname
+myhostname
+
+#DNS Config
+cat /etc/hosts
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	myhostname.localdomain	myhostname
+
+#Install
+pacman -S grub os-prober
+
+#Config grub
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+#(OPTIONAL: create user/group...)
+useradd...
+
+#Change Password
+passwd
+
+#Exit root
+exit
+
+#Unmount Disk
+umount -R /mnt
+
+#Reboot
+shutdown -h now
+
+
+
+
+
+
+
