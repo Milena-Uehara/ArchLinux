@@ -14,6 +14,11 @@ nameserver 8.8.4.4
 pacman -S xorg xorg-server xorg-xinit i3 i3wm
 pacman -S xf86-video-fbdev xf86-video-vesa xf86-video-vmware
 pacman -S neovim tmux nmap alacritty
-pacman -S gdm (GNOME)
+pacman -S gdm gnome
 
 #Create tmux.conf
+#File location: ~/.tmux.conf and /etc/tmux.conf
+
+#GNOME
+sudo pacman -S gnome
+systemctl enable gdm.service
