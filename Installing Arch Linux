@@ -50,19 +50,18 @@ ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 
 #Localization
-cat /etc/locale.gen | grep pt
+vim /etc/locale.gen | grep pt
 #Remove (#)pt_br.UTF-8 UTF-8
 
 #Load configuration
 locale-gen
 
 #Edit file 
-cat /etc/locale.conf
+vim /etc/locale.conf
 export LANG="pt_BR.UTF-8"
 
 #Network Config
-cat /etc/hostname
-myhostname
+vim /etc/hostname
 
 #DNS Config
 cat /etc/hosts
