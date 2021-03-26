@@ -13,11 +13,10 @@ exit
 #Update pacman’s cache
 sudo pacman -Syy
 
+sudo pacman -S whatweb webanalyser dnsenum nmap fping recon-ng
+
 #List all the groups with this command: 
 sudo pacman -Sg | grep blackarch
-
-
-
 sudo pacman -S blackarch-webapp (a lot of packages!!!)
 sudo pacman -S blackarch-scanner (a lot of packages!!!)
 sudo pacman -S blackarch (more than 2500 packages!!!)
