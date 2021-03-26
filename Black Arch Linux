@@ -1,0 +1,23 @@
+#Upgrade Arch Distribution
+sudo pacman -Syyu
+
+sudo su
+#Downloads and executes the keyring installer
+wget -O - https://blackarch.org/strap.sh | bash
+
+#Leaves root bash
+exit
+
+[+] BlackArch Linux is ready!
+
+#Update pacman’s cache
+sudo pacman -Syy
+
+#List all the groups with this command: 
+sudo pacman -Sg | grep blackarch
+sudo pacman -S {package-name}
+
+sudo pacman -S blackarch-webapp 
+sudo pacman -S blackarch-scanner
+
+sudo pacman -S blackarch (more than 2500 packages!!!)
