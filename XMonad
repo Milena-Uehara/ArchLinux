@@ -1,0 +1,19 @@
+sudo pacman -S xmonad xmonad-contrib
+
+reboot
+
+#Login into XMonad
+#Black Screen
+#Open terminal
+alt + shift + enter
+
+#Close teminal
+alt + shift + c
+
+#Open dmenu
+alt + p
+firefox: Search for: Haskell xmonad config and download file
+
+cd /Downloads
+mv xmonad.hs ~/.xmonad/xmonad.hs
+
