@@ -1,3 +1,5 @@
+## PATH: cp /etc/X11/xinit/xinitrc ~/.xinitrc ##
+
 #!/bin/sh
 
 userresources=$HOME/.Xresources
